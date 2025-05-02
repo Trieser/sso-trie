@@ -1,63 +1,47 @@
-# Laravel 9 + Vite + React + Tailwind CSS
+# Laravel Vite React Starter Template
 
-This starter template includes:
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
--   Laravel 9
--   Vite
--   React
--   Tailwind CSS (w/ `@tailwindcss/forms`)
--   Axios
--   TypeScript
+A modern starter template for Laravel 9 with Vite, React 18, and Tailwind CSS - optimized for single-page application development.
 
-## Information
+## ✨ Features
 
--   The app is located in [`resources/js/`](/resources/js/).
--   You can use [`resources/css/`](/resources/css/) for styling.
+- ⚡ **Blazing Fast** - Vite-powered asset compilation
+- 🚀 **Modern Stack**:
+  - Laravel 9 (PHP backend)
+  - React 18 (Frontend)
+  - TypeScript support
+- 🎨 **Tailwind CSS** with:
+  - `@tailwindcss/forms` plugin
+  - JIT compiler enabled
+- 🔄 **Hot Module Replacement** (HMR) during development
+- 📡 **Axios** for API requests
 
-## Installation
+## 📦 Project Structure
 
-Install the composer dependencies:
 
-```bash
-composer install
-```
+## 🛠️ Installation
 
-Make a copy of the `.env.example` file named `.env`:
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/Trieser/laravel-vite-template.git
+   cd laravel-vite-template
 
-```bash
-cp .env.example .env
-```
+2. **Install PHP dep**:
+   ```bash
+   composer install
 
-Generate an app key:
+3. **set env**:
+   ```bash
+   cp .env.example .env
+   php artisan key:generate
 
-```bash
-php artisan key:generate
-```
+4. **Install JS**:
+   ```bash
+   npm install
 
-Install all `package.json` dependencies:
-
-```bash
-npm install
-```
-
-Run vite to serve your assets/bundle:
-
-```bash
-npm run dev
-```
-
-Open a new terminal instance and serve the application:
-
-```bash
-php artisan serve
-```
-
-## Deployment
-
-Build the app:
-
-```bash
-npm run build
-```
-
-Now all you have to do is serve the Laravel app in a production environment.
+5 **RUN**:
+  ```bash
+  npm run dev
+  php artisan serve
+  
