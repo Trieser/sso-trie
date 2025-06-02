@@ -15,14 +15,33 @@ const Navbar = () => {
         }
     };
 
+    const handleTitleClick = () => {
+        const path = window.location.pathname;
+        const isUser = path.includes("/user");
+        const isAdmin = path.includes("/admin");
+        
+        if (isUser) {
+            navigate("/user/dashboard");
+        } else if (isAdmin) {
+            navigate("/admin/dashboard");
+        } else {
+            navigate("/");
+        }
+    };
+
     const path = window.location.pathname;
     const isUser = path.includes("/user");
     const isAdmin = path.includes("/admin");
     const isLoggedIn = isUser || isAdmin;
 
     return (
-        <nav className="flex items-center justify-between bg-white p-4 shadow">
-            <h1 className="text-lg font-bold text-blue-600">SSO-TRIE</h1>
+        <nav className="sticky top-0 z-40 flex items-center justify-between bg-white p-4 shadow">
+            <button
+                onClick={handleTitleClick}
+                className="text-lg font-bold text-blue-600 hover:text-blue-700 focus:outline-none"
+            >
+                TRIE PG
+            </button>
 
             {isLoggedIn ? (
                 <div className="relative flex items-center space-x-2">
