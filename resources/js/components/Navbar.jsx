@@ -9,6 +9,7 @@ const Navbar = () => {
     const handleLogout = async () => {
         try {
             await axios.post("/logout");
+            setDropdownOpen(false);
             window.location.href = "/";
         } catch (err) {
             alert("Logout gagal");
@@ -27,6 +28,13 @@ const Navbar = () => {
         } else {
             navigate("/");
         }
+    };
+
+    const getHomePath = () => {
+        const path = window.location.pathname;
+        if (path.includes("/admin")) return "/admin/dashboard";
+        if (path.includes("/user")) return "/user/dashboard";
+        return "/";
     };
 
     const path = window.location.pathname;
@@ -73,13 +81,17 @@ const Navbar = () => {
                     {dropdownOpen && (
                         <div className="absolute right-0 z-50 mt-2 w-40 rounded border bg-white shadow">
                             <Link
-                                to="/"
+                                to={getHomePath()}
+                                onClick={() => setDropdownOpen(false)}
                                 className="block px-4 py-2 text-gray-800 hover:bg-gray-100"
                             >
                                 Home
                             </Link>
                             <button
-                                onClick={handleLogout}
+                                onClick={() => {
+                                    handleLogout();
+                                    setDropdownOpen(false);
+                                }}
                                 className="w-full px-4 py-2 text-left text-red-600 hover:bg-gray-100"
                             >
                                 Logout
